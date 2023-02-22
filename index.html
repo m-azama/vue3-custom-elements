@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Vue + TS</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      iframe {
+        border: none;
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://www.marsflag.com/ja/"></iframe>
+
+    <mf-chat-bot
+      label="prop from HTML"
+    >
+      <div slot="header">Slot contents</div>
+    </mf-chat-bot>
+
+    <script>
+      // カスタムエレメントにイベントを登録するとコンポーネントでemitとして使える！
+      const mfChatBot = document.querySelector('mf-chat-bot');
+      mfChatBot.addEventListener('mf-click-fnc', e => {
+        // コンポーネントから値をもらえるよ〜
+        console.log(e.detail[0]);
+      });
+    </script>
+
+
+<script type="module" src="/src/main.ts"></script>
+    <!-- <div id="app">
+      <app label="aaaaaaaaaa"></app>
+    </div>
+    <script type="module" src="/src/main.ts"></script> -->
+  </body>
+</html>
